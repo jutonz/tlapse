@@ -11,8 +11,8 @@ include Tlapse
 program_desc "Automated time lapse photography via gphoto2"
 version Tlapse::VERSION
 
+desc "Determine whether you are ready to start capturing"
 command :doctor do |c|
-  c.desc "Determine whether you are ready to start capturing"
   c.action do |global_options,options,args|
     doctor
   end
