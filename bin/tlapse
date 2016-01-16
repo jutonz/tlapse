@@ -1,6 +1,7 @@
 #!/usr/bin/ruby
 
 require "slop"
+require "byebug"
 require_relative "../lib/tlapse"
 
 opts = Slop.parse do |o|
@@ -8,4 +9,11 @@ opts = Slop.parse do |o|
     puts Tlapse::VERSION
     exit
   end
+
+  o.on "-h", "--help", "print this dialog" do
+    puts o
+    exit
+  end
 end
+
+puts opts
