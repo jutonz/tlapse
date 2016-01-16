@@ -1,0 +1,11 @@
+#!/usr/bin/ruby
+
+require "slop"
+require_relative "../lib/tlapse"
+
+opts = Slop.parse do |o|
+  o.on "-v", "--version", "print the version" do
+    puts Tlapse::VERSION
+    exit
+  end
+end
