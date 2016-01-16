@@ -1,19 +1,14 @@
-#!/usr/bin/ruby
+#!/usr/bin/env ruby
 
-require "slop"
+require "gli"
 require "byebug"
+
 require_relative "../lib/tlapse"
 
-opts = Slop.parse do |o|
-  o.on "-v", "--version", "print the version" do
-    puts Tlapse::VERSION
-    exit
-  end
+include GLI::App
 
-  o.on "-h", "--help", "print this dialog" do
-    puts o
-    exit
-  end
-end
+program_desc "Automated time lapse photography via gphoto2"
+version Tlapse::VERSION
 
-puts opts
+exit run(ARGV)
+
