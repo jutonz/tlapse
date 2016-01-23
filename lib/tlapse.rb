@@ -5,7 +5,6 @@ require_relative "tlapse/video"
 
 include Tlapse::Doctor
 include Tlapse::Capture
-include Tlapse::Video
 
 module Tlapse
 
