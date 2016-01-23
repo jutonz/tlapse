@@ -1,4 +1,4 @@
-mCaptureodule Tlapse
+module Tlapse
   module Capture
     def capture_single
       puts "Capturing single image"
