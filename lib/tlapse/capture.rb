@@ -1,8 +1,7 @@
 module Tlapse
   module Capture
     def capture_single
-      puts "Capturing single image"
-      # TODO: Actually capture image
+      `gphoto2 --capture-image-and-download`
     end
   end # Capture
 end # Tlapse
