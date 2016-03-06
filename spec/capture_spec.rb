@@ -70,5 +70,5 @@ describe Tlapse::Capture do
       expect(captures).to eql 4
 
     end
-  end
+  end # describe "captures_needed"
 end
