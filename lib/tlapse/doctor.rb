@@ -1,15 +1,22 @@
 module Tlapse
   module Doctor
-    def doctor
-      print "Checking gphoto2..."
-      check_gphoto2!
-      puts "ok!"
+    CHECKS = %i(gphoto2 camera)
 
-      print "Checking camera..."
-      check_camera!
-      puts "ok!"
+    def doctor
+      CHECKS.each do |check|
+        print "Checking #{check}..."
+        send "check_#{check}!"
+        puts "ok!"
+      end
 
       puts "Looks good!"
+    end
+
+    def okay?
+      CHECKS.each { |check| send "check_#{check}!" }
+      true
+    rescue StandardError
+      false
     end
 
     private ###################################################################
