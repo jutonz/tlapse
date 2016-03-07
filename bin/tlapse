@@ -25,6 +25,29 @@ command :single do |c|
   end
 end
 
+desc "Start a drb server via which photo capturing may be performed remotely"
+command :serve do |c|
+
+  c.flag :h, :host,
+    desc:          "The hostname on which the server is run",
+    default_value: `hostname`,
+    arg_name:      "host"
+
+  c.flag :p, :port,
+    desc:         "The port on which the server is run",
+    default_value: 9000,
+    arg_name:      "port"
+
+  c.action do |global_options, options, args|
+    server = Tlapse::Server.new(
+      host: options[:host],
+      port: options[:port]
+    )
+    puts "Serving on #{server.full_host}"
+    server.serve
+  end
+end
+
 
 desc "Use ffmpeg to combine all .jpg files in the current directory"
 command :compile do |c|

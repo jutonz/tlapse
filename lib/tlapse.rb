@@ -2,6 +2,7 @@ require_relative "tlapse/version"
 require_relative "tlapse/doctor"
 require_relative "tlapse/capture"
 require_relative "tlapse/video"
+require_relative "tlapse/server"
 
 include Tlapse::Doctor
 include Tlapse::Capture
