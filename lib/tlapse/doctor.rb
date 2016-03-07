@@ -12,11 +12,15 @@ module Tlapse
       puts "Looks good!"
     end
 
-    def okay?
+    def status
       CHECKS.each { |check| send "check_#{check}!" }
-      true
-    rescue StandardError
-      false
+      "OK"
+    rescue StandardError => e
+      e.message
+    end
+
+    def okay?
+      status == "OK"
     end
 
     private ###################################################################

@@ -2,7 +2,6 @@
 
 require "gli"
 require "fileutils"
-require "byebug"
 
 require_relative "../lib/tlapse"
 
