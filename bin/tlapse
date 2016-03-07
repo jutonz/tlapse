@@ -30,7 +30,7 @@ command :serve do |c|
 
   c.flag :h, :host,
     desc:          "The hostname on which the server is run",
-    default_value: `hostname`,
+    default_value: `hostname`.strip,
     arg_name:      "host"
 
   c.flag :p, :port,
