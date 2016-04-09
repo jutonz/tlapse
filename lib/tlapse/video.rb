@@ -1,6 +1,5 @@
 module Tlapse
   class Video
-
     attr_accessor *%i(size framerate codec outfile)
 
     def initialize(opts)

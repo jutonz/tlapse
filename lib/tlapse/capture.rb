@@ -37,11 +37,34 @@ module Tlapse
 
     ##
     # Capture a series of timelapse images over the given duration
-    # and at the given interval
-    def timelapse_comand(from: Time.now, to:, interval:)
+    # and at the given interval.
+    #
+    # @return [String] a gphoto2 command with the desired arguments
+    def self.timelapse_command(from: Time.now, to:, interval:)
       captures = self.captures_needed(
         start_time: from,
         end_time:   to,
+        interval:   interval
+      )
+      "gphoto2 --capture-image-and-download -I #{interval} -F #{captures}"
+    end
+
+    ##
+    # Capture a timelapse image once per interval while the sun is up.
+    #
+    # @param interval [Duration] how frequently to capture images
+    # @return [String] a gphoto2 command with the desired arguments
+    def self.timelapse_command_while_sun_is_up(interval: 5.minutes)
+      sunrise = SolarEvent.sunrise
+      sunset  = SolarEvent.sunset
+      now     = Time.now
+
+      # Use now as starting time if sunrise has passed
+      sunrise = now > sunrise ? now : sunrise
+
+      captures = self.captures_needed(
+        start_time: sunrise,
+        end_time:   sunset,
         interval:   interval
       )
       "gphoto2 --capture-image-and-download -I #{interval} -F #{captures}"
