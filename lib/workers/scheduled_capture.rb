@@ -1,3 +1,5 @@
+require "tlapse/capture"
+
 Sidekiq.configure_client do |config|
   config.redis = { namespace: "tlapse", size: 1 }
 end
@@ -11,6 +13,7 @@ class ScheduledCapture
   sidekiq_options retry: false
 
   def perform
+    Tlapse::Capture.capture_single
     puts "hey it worked"
   end
 end

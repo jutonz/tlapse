@@ -2,10 +2,14 @@ require "active_support/core_ext/numeric/time.rb"
 
 module Tlapse
   module Capture
-    def self.capture_single(format: nil)
+    def self.capture_single(format: "%Y-%m-%d_%H-%M-%S.jpg")
       puts "The format key is not yet supported" if format
 
-      `gphoto2 --capture-image-and-download`
+      command = "gphoto2"
+      command += " --port usb:"
+      command += " --capture-image-and-download"
+      command += " --filename #{format}" if format
+      `#{command}`
     end
 
     ##

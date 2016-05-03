@@ -8,13 +8,8 @@ module Tlapse
       now = Time.now
       start_time = now > sunrise ? now : sunrise
 
-      #require 'byebug'; byebug
       #ScheduledCapture.perform_at(start_time)
-      #ScheduledCapture.perform_async
-      ScheduledCapture.perform_in(3.seconds)
-    end
-
-    def start
+      ScheduledCapture.perform_async
     end
   end # Automatic
 end # Tlapse
