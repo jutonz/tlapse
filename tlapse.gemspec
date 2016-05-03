@@ -27,4 +27,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "gli", "~> 2.13"
   spec.add_dependency "activesupport", ">= 5.0.0.beta3", "< 5.1"
   spec.add_dependency "RubySunrise", "~> 0.3"
+  spec.add_dependency "sidekiq", "~> 4.1.1"
 end
