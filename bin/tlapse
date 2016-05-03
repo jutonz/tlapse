@@ -27,7 +27,6 @@ end
 
 desc "Start a drb server via which photo capturing may be performed remotely"
 command :serve do |c|
-
   c.flag :h, :host,
     desc:          "The hostname on which the server is run",
     default_value: `hostname`.strip,
@@ -54,9 +53,14 @@ command :auto do |c|
   end
 end
 
+command :sidekiq do |c|
+  c.action do |global_options, options, args|
+    Kernel.exec 'bundle exec sidekiq -r ./lib/workers/scheduled_capture.rb'
+  end
+end
+
 desc "Use ffmpeg to combine all .jpg files in the current directory"
 command :compile do |c|
-
   c.switch :f, :force,
     desc:     "Force overwrite existing output files",
     negatable: false
