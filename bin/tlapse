@@ -19,7 +19,7 @@ command :doctor do |c|
 end
 
 desc "Capture a single photo, saving it to the current directory"
-command :single do |c|
+command :capture do |c|
   c.action do |global_options, options, args|
     capture_single
   end
@@ -27,7 +27,6 @@ end
 
 desc "Start a drb server via which photo capturing may be performed remotely"
 command :serve do |c|
-
   c.flag :h, :host,
     desc:          "The hostname on which the server is run",
     default_value: `hostname`.strip,
