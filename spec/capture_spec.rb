@@ -71,4 +71,30 @@ describe Tlapse::Capture do
 
     end
   end # describe "captures_needed"
+
+  describe ".timelapse_command" do
+    let (:seven_am) { Time.current.change(hour: 7) }
+    let (:seven_pm) { Time.current.change(hour: 19) }
+    let (:interval) { 5.minutes }
+
+    it "respects intervals" do
+      cmd = Tlapse::Capture.timelapse_command(
+        from: seven_am,
+        to: seven_pm,
+        interval: 10.minutes
+      )
+
+      expect(cmd).to include "-I 600"
+    end
+
+    it "applies a default filename" do
+      cmd = Tlapse::Capture.timelapse_command(
+        from: seven_am,
+        to: seven_pm,
+        interval: interval
+      )
+
+      expect(cmd).to include '--filename "%Y-%m-%d_%H-%M-%S.jpg'
+    end
+  end # describe ".timelapse_command"
 end

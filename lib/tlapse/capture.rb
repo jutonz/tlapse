@@ -46,7 +46,11 @@ module Tlapse
         end_time:   to,
         interval:   interval
       )
-      "gphoto2 --capture-image-and-download -I #{interval} -F #{captures}"
+
+      command = "gphoto2 --capture-image-and-download"
+      command += " -I #{interval}"
+      command += " -F #{captures}"
+      command += ' --filename "%Y-%m-%d_%H-%M-%S.jpg"'
     end
 
     ##
