@@ -1,6 +1,6 @@
 # Tlapse
 
-Automated your time lapse photography using gphoto2.
+Automated time lapse photography using gphoto2.
 
 ## Installation
 
