@@ -27,13 +27,13 @@ Mostly useful for cronjobs and the like.
     from: Time.now,
     to: Time.now + 6.hours,
     interval: 30.minutes
-  }) # => "gphoto2 --capture-image-and-download -I 1800 -F 12 --filename \"%Y-%m-%d_%H-%M-%S.jpg\""
+  }) # => "gphoto2 --capture-image-and-download -I 1800 -F 12 --filename '%Y-%m-%d_%H-%M-%S.jpg'"
   ```
 
 * Capture images from sunset to sunrise
   ```ruby
   Tlapse::Capture.timelapse_command_while_sun_is_up(interval: 30.minutes)
-  # => "gphoto2 --capture-image-and-download -I 1800 -F -9"
+  # => "gphoto2 --capture-image-and-download -I 1800 -F 11 --filename '%Y-%m-%d_%H-%M-%S.jpg'"
   ```
 
 ## License
