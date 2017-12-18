@@ -75,5 +75,17 @@ command :compile do |c|
   end
 end
 
+desc "Generate a gphoto2 command which captures photos from now until the sun sets (useful for cronjobs)"
+command :until_sunset do |c|
+  c.flag :i, :interval,
+    desc: "The interval (in minutes) at which pictures will be taken",
+    default_value: "5"
+
+  c.action do |global_options, options, args|
+    interval = options[:interval].to_i.minutes
+    puts Tlapse::Capture.timelapse_command_while_sun_is_up(interval: interval)
+  end
+end
+
 exit run(ARGV)
 
