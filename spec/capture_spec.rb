@@ -94,7 +94,7 @@ describe Tlapse::Capture do
         interval: interval
       )
 
-      expect(cmd).to include '--filename "%Y-%m-%d_%H-%M-%S.jpg'
+      expect(cmd).to include "--filename '%Y-%m-%d_%H-%M-%S.jpg'"
     end
   end # describe ".timelapse_command"
 end
