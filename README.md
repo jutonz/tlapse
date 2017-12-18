@@ -9,13 +9,22 @@ Automated time lapse photography using gphoto2.
   * macOS: `brew install gphoto2`
   * Debian/Ubuntu: `sudo apt install gphoto2`
 
-2. `gem install tlapse` or add `gem 'tlapse'` to your `Gemfile`.
+2. `gem install tlapse`
+
+## Example: Integrate with cron
+
+* From 9 AM to sunset, capture one image every 10 minutes
+
+```
+0 9 * * * cd $HOME && eval "$(tlapse until_sunset --interval 10)" >> capture.log
+```
 
 ## CLI
 
 Find better documentation by running `tlapse help` or `tlapse help SUBCOMMAND`
 
 * `tlapse capture` - Capture an image using the tethered camera
+* `tlapse until_sunset` - Generate a gphoto2 command which captures images until sunset
 
 ## API
 
