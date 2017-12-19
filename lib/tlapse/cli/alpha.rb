@@ -34,7 +34,7 @@ module Tlapse::CLI
       default: "out.mkv",
       aliases: %i(o)
     def compile
-      video = Video.new out: options[:out]
+      video = Tlapse::Video.new out: options[:out]
 
       if video.outfile_exists?
         if options[:force]
