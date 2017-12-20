@@ -13,7 +13,7 @@ module Tlapse
     end
 
     def self.normalize_filename(file)
-      File.ctime(file).strftime(Tlapse::Capture::CAPTURE_FILENAME)
+      File.mtime(file).strftime(Tlapse::Capture::CAPTURE_FILENAME)
     end
   end
 end
