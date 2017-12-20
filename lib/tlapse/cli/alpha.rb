@@ -48,5 +48,14 @@ module Tlapse::CLI
 
       video.create!
     end
+
+    desc "normalize", "Cannonically organize pictures in the current directory"
+    option :dry_run,
+      desc: "Print out what would change without actually changing anything",
+      type: :boolean,
+      default: false
+    def normalize
+      Tlapse::Util.normalize! dry_run: options[:dry_run]
+    end
   end
 end
