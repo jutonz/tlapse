@@ -7,7 +7,7 @@ module Tlapse
         normalized = normalize_filename(filename)
         if filename != normalized
           puts "Rename #{filename} to #{normalized}"
-          FileUtils.mv filename, normalize_filename unless dry_run
+          FileUtils.mv(filename, normalized) unless dry_run
         end
       end
     end
