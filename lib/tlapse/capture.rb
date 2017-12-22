@@ -4,9 +4,14 @@ module Tlapse
   module Capture
 
     CAPTURE_FILENAME = "%Y-%m-%d_%H-%M-%S.jpg"
+    CAPTURE_DIRNAME  = "%Y-%m-%d"
 
     def self.capture_filename
       CAPTURE_FILENAME
+    end
+
+    def self.capture_dirname
+      CAPTURE_DIRNAME
     end
 
     def self.capture_single

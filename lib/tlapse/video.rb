@@ -21,11 +21,8 @@ module Tlapse
       exec command
     end
 
-    ##
-    # @return whether the output file already exists
     def outfile_exists?
       File.exist? @outfile
     end
-
-  end # Video
-end # Tlapse
+  end
+end
