@@ -1,4 +1,5 @@
 require "thor"
+require "rainbow"
 
 module Tlapse::CLI
   class Alpha < Thor
@@ -41,7 +42,7 @@ module Tlapse::CLI
           FileUtils.rm video.outfile
           puts "Removed file #{video.outfile}"
         else
-          raise "#{video.outfile} exists. Use -f to overwrite or " \
+          Tlapse::Logger.error! "#{video.outfile} exists. Use -f to overwrite or " \
             "-o to specify a different output file."
         end
       end

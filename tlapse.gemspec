@@ -27,4 +27,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "activesupport", ">= 5.0.0.beta3", "< 5.1"
   spec.add_dependency "RubySunrise", "~> 0.3"
   spec.add_dependency "thor", "~> 0.20"
+  spec.add_dependency "rainbow", "~> 3"
 end

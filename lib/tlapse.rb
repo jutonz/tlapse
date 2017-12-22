@@ -5,6 +5,7 @@ require_relative "tlapse/video"
 require_relative "tlapse/server"
 require_relative "tlapse/solar_event"
 require_relative "tlapse/util"
+require_relative "tlapse/logger"
 
 include Tlapse::Doctor
 include Tlapse::Capture
