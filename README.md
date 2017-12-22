@@ -23,7 +23,7 @@ Automated time lapse photography using gphoto2.
 
 Find better documentation by running `tlapse help` or `tlapse help SUBCOMMAND`
 
-* `tlapse capture` - Capture an image using the tethered camera
+* `tlapse capture_single` - Capture an image using the tethered camera
 * `tlapse until_sunset` - Generate a gphoto2 command which captures images until sunset
 
 ## API

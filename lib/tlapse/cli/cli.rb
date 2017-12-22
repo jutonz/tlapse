@@ -15,8 +15,8 @@ module Tlapse::CLI
       puts Tlapse::VERSION
     end
 
-    desc "capture", "Capture a single photo, saving it to the current directory"
-    def capture
+    desc "capture_single", "Capture a single photo, saving it to the current directory"
+    def capture_single
       Tlapse::Capture.capture_single
     end
 
