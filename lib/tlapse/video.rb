@@ -9,7 +9,7 @@ module Tlapse
       @outfile   = opts.fetch :out,       "out.mkv"
     end
 
-    def create!
+    def create_command
       command = "ffmpeg"
       command += " -pattern_type glob"
       command += " -i '*.jpg'"
@@ -17,8 +17,13 @@ module Tlapse
       command += " -r #{@framerate}"
       command += " -vcodec #{@codec}"
       command += " #{@outfile}"
-      puts command
-      exec command
+      command
+    end
+
+    def create!
+      cmd = create_command
+      puts cmd
+      exec cmd
     end
 
     def outfile_exists?
