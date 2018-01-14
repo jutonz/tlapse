@@ -2,6 +2,7 @@ require "thor"
 require "active_support/core_ext/numeric/time.rb"
 require "tlapse"
 require "tlapse/cli/alpha"
+require "tlapse/cli/config"
 
 module Tlapse::CLI
   class CLI < Thor
@@ -30,6 +31,9 @@ module Tlapse::CLI
       interval = options[:interval].minutes
       puts Tlapse::Capture.timelapse_command_while_sun_is_up(interval: interval)
     end
+
+    desc "config", "Read and write config options"
+    subcommand "config", Tlapse::CLI::Config
 
     desc "alpha", "Get early access to in-development (and likely unstable) commands"
     subcommand "alpha", Tlapse::CLI::Alpha
