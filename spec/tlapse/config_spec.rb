@@ -69,7 +69,7 @@ describe Tlapse::Config do
       key = "hey"
       value = "yo"
       config = { key => value }
-      Tempfile.create do |f|
+      Tempfile.create "tlapse" do |f|
         stub_const "Tlapse::Config::CONFIG_PATH", f.path
         f.write config.to_yaml
         f.flush
