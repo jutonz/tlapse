@@ -23,6 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "byebug", "~> 8.2"
   spec.add_development_dependency "timecop", "~> 0.8"
+  spec.add_development_dependency "simplecov", "~> 0.15"
 
   spec.add_dependency "activesupport", "~> 5"
   spec.add_dependency "RubySunrise", "~> 0.3"
