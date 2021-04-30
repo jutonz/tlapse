@@ -7,8 +7,8 @@ describe Tlapse::Capture do
     it "requires an interval" do
       expect {
         Tlapse::Capture.captures_needed
-      }.to raise_exception(
-        ArgumentError, "missing keyword: interval"
+      }.to raise_error(
+        ArgumentError, "missing keyword: :interval"
       )
     end
 
