@@ -24,7 +24,7 @@ module Tlapse::CLI
       server.serve
     end
 
-    desc "compile", "Use ffmpeg to combine all .jpg files in the current directory"
+    desc "compile", "Use ffmpeg to combine .jpg"
     option :force,
       desc: "Force overwrite any existing output files",
       type: :boolean,
@@ -35,12 +35,19 @@ module Tlapse::CLI
       type: :string,
       default: "out.mkv",
       aliases: %i(o)
+    option :glob,
+      desc: "Specify how to find input images, e.g. `*.JPEG`",
+      type: :string,
+      default: "**/*.jpg"
     def compile
-      video = Tlapse::Video.new out: options[:out]
+      video = Tlapse::Video.new(
+        glob: options[:glob],
+        out: options[:out]
+      )
 
       if video.outfile_exists?
         if options[:force]
-          FileUtils.rm video.outfile
+          FileUtils.rm(video.outfile)
           puts "Removed file #{video.outfile}"
         else
           Tlapse::Logger.error! "#{video.outfile} exists. Use -f to overwrite or " \
