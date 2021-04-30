@@ -8,7 +8,7 @@ describe Tlapse::Capture do
       expect {
         Tlapse::Capture.captures_needed
       }.to raise_error(
-        ArgumentError, "missing keyword: :interval"
+        ArgumentError, /missing keyword/
       )
     end
 
