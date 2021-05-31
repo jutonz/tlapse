@@ -24,7 +24,7 @@ module Tlapse::CLI
       server.serve
     end
 
-    desc "compile", "Use ffmpeg to combine .jpg"
+    desc "compile", "Use ffmpeg to combine .jpg files into a video"
     option :force,
       desc: "Force overwrite any existing output files",
       type: :boolean,
