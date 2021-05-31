@@ -8,7 +8,7 @@ describe Tlapse::Video do
 
       command = video.create_command
 
-      expect(command).to include("-i #{glob}")
+      expect(command).to include("-i '#{glob}'")
     end
   end
 end
