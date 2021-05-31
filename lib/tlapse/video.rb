@@ -3,16 +3,17 @@ module Tlapse
     attr_accessor *%i(size framerate codec outfile)
 
     def initialize(opts)
-      @size      = opts.fetch :size,      "1920x1080"
-      @framerate = opts.fetch :framerate, "60"
-      @codec     = opts.fetch :codec,     "libx264"
-      @outfile   = opts.fetch :out,       "out.mkv"
+      @codec = opts.fetch(:codec, "libx264")
+      @framerate = opts.fetch(:framerate, "60")
+      @glob = opts.fetch(:glob, "**/*.jpg")
+      @outfile = opts.fetch(:out, "out.mkv")
+      @size = opts.fetch(:size, "1920x1080")
     end
 
     def create_command
       command = "ffmpeg"
       command += " -pattern_type glob"
-      command += " -i '*.jpg'"
+      command += " -i '#{@glob}'"
       command += " -s #{@size}"
       command += " -r #{@framerate}"
       command += " -vcodec #{@codec}"
