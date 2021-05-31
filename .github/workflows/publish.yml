@@ -21,4 +21,7 @@ jobs:
     - name: gem push
       env:
         GEM_HOST_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
-      run: gem push "tlapse-$(git describe --tags).gem"
+      run: |
+        tag=$(git describe --tags)
+        tag=${tag:1}
+        gem push "tlapse-$tag.gem"
